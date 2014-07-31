@@ -15,4 +15,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require_tree .
+//= require jquery.appear
+//= require jquery.backstretch.min
+//= require holder
+//= require jquery.isotope
+//= require jquery.stellar
+//= require jquery.easing.1.3
+//= require masonry
+//= require slider_revolution
+//= require plugins/revolution-slider/js/jquery.themepunch.revolution
+//= require plugins/revolution-slider/js/jquery.themepunch.plugins.min
+//= require plugins/revolution-slider/videojs/video.js
+//= require scripts
+
+
