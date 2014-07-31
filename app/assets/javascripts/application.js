@@ -27,5 +27,6 @@
 //= require plugins/revolution-slider/js/jquery.themepunch.plugins.min
 //= require plugins/revolution-slider/videojs/video.js
 //= require scripts
+//= require_self
 
 

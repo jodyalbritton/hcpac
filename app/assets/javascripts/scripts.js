@@ -33,10 +33,10 @@
 *************************************************** **/
 
 	/* Init */
-	jQuery(window).ready(function () {
-		Atropos();
-	});
 
+$(document).on('page:change', function () {
+  Atropos();
+});
 
 /** Core
  **************************************************************** **/
@@ -661,8 +661,8 @@ function _parallax() {
 
 	}
 
-	jQuery(window).load(function () {
-
+	$(window).on('page:change', function () {
+	
 		if(jQuery(".parallax").length > 0) {
 
 			if(!Modernizr.touch) {
@@ -701,7 +701,7 @@ function _parallax() {
  **************************************************************** **/
 function _masonry() {
 
-	jQuery(window).load(function() {
+	$(window).on('page:change', function () {
 
 		jQuery("span.js_loader").remove();
 		jQuery("li.masonry-item").addClass('fadeIn');
@@ -729,7 +729,7 @@ function _masonry() {
 
 		if(destination.get(0)) {
 
-			jQuery(window).load(function() {
+			$(window).on('page:change', function () {
 
 				destination.isotope({
 					itemSelector: 	"li",
@@ -763,7 +763,7 @@ function _masonry() {
 	});
 
 
-	jQuery(window).load(function() {
+	$(window).on('page:change', function () {
 
 		jQuery("ul.isotope").addClass('fadeIn');
 
