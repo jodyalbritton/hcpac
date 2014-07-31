@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Henderson County Performing Arts Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js", "https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js" %>
+  <![endif]-->
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+   <header id="topHead" class="color">
+      <div class="container">
+        <i class="fa fa-phone"></i> 903-675-3908 &bull; 
+        <a href="mailto:dennisgilmore@hcpac.org">dennisgilmore@hcpac.org</a>
+
+        <div class="pull-right socials">
+          <a href="http://facebook.com" class="pull-left social fa fa-facebook"></a>
+          <a href="http://twitter.com" class="pull-left social fa fa-twitter"></a>
+          <a href="http://google.com" class="pull-left social fa fa-google-plus"></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- TOP NAV -->
+    <header id="topNav" class="topHead"><!-- remove class="topHead" if no topHead used! -->
+      <div class="container">
+
+        <!-- Mobile Menu Button -->
+        <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- Logo text or image -->
+        <%= link_to root_url, :class=> "logo" do %>
+          <%= image_tag "hcpac_logo.png", :class=> "img img-responsive" %>
+         
+        <% end %>
+
+        <!-- Top Nav -->
+        <div class="navbar-collapse nav-main-collapse collapse pull-right">
+          <nav class="nav-main">
+            <ul class="nav nav-pills nav-main scroll-menu" id="topMain">
+              <li>
+                 <%= link_to root_url do %>
+                  Home
+                 <% end %>
+              </li>
+              
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#">
+                  Info <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to page_path('about') do %>
+                      About
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to page_path('staff') do %>
+                      Staff
+                    <% end %>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- /Top Nav -->
+
+      </div>
+    </header>
+
+    <span id="header_shadow"></span>
+    <!-- /TOP NAV -->
+
+
+
+
+
+    <!-- WRAPPER -->
+    <div id="wrapper">
+      
+    <%= yield %>
+
+    </div>
+    <!-- /WRAPPER -->
+
+
+
+    <!-- FOOTER -->
+    <footer>
+
+      <!-- copyright , scrollTo Top -->
+      <div class="footer-bar">
+        <div class="container">
+          <span class="copyright">Copyright &copy; Henderson County Performing Arts. All Rights Reserved.</span>
+          <a class="toTop" href="#topNav">BACK TO TOP <i class="fa fa-arrow-circle-up"></i></a>
+        </div>
+      </div>
+      <!-- copyright , scrollTo Top -->
+
+
+      <!-- footer content -->
+      <div class="footer-content">
+        <div class="container">
+
+          <div class="row">
+
+
+            <!-- FOOTER CONTACT INFO -->
+            <div class="column col-md-4">
+              <h3>CONTACT</h3>
+
+              <p class="contact-desc">
+                Located in beautiful East Texas, HCPAC is one of many great attractions you will find in Athens, Texas.                  
+              </p>
+              <address class="font-opensans">
+                <ul>
+                  <li class="footer-sprite address">
+                    400 Gibson Rd<br />
+                    Athens, Texas<br />
+                    75144<br />
+                  </li>
+                  <li class="footer-sprite phone">
+                    Phone: 903-675-3908
+                  </li>
+                  <li class="footer-sprite email">
+                    <a href="mailto:dennisgilmore@hcpac.org">dennisgilmore@hcpac.org</a>
+                  </li>
+                </ul>
+              </address>
+
+            </div>
+            <!-- /FOOTER CONTACT INFO -->
+
+
+            <!-- FOOTER LOGO -->
+            <div class="column logo col-md-4 text-center">
+              <div class="logo-content">
+                <%= image_tag "footer_logo.png", :class=>"animate_fade_in", :width => "200" %>
+              </div>                      
+            </div>
+            <!-- /FOOTER LOGO -->
+
+
+
+          </div>
+
+        </div>
+      </div>
+      <!-- footer content -->
+
+    </footer>
+    <!-- /FOOTER -->
+
+
+
+
+
+    </body>

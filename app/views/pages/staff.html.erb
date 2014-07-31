@@ -1,0 +1,77 @@
+<%  add_breadcrumb "Home", :root_path, :options => { :title => "Home" } %>
+<%  add_breadcrumb "Staff", page_path('staff'), :options => { :title => "Staff" } %>
+<% content_for :page_title, 'HCPAC Staff' %>
+	<!-- PAGE TITLE -->
+			<header id="page-title">
+
+				<div class="container">
+					<h1>Staff</h1>
+
+					<ul class="breadcrumb">
+						  <%= render_breadcrumbs :tag => :li, :separator => "" %>
+						
+					</ul>
+				</div>
+			</header>
+<section class="container">
+
+				<h2>Meet the <strong>team</strong></h2>
+
+				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet.</p>
+
+				<ul class="nav nav-pills isotope-filter isotope-filter" data-sort-id="isotope-list" data-option-key="filter">
+					<li data-option-value="*" class="active"><a href="#">Show All</a></li>
+					<li data-option-value=".director"><a href="#">Director</a></li>
+					<li data-option-value=".admin"><a href="#">Administrative</a></li>
+					<li data-option-value=".creative"><a href="#">Creative</a></li>
+				</ul>
+
+
+				<div class="row">
+
+					<ul class="sort-destination isotope" data-sort-id="isotope-list">
+
+						<li class="isotope-item col-md-3 director"><!-- item 1 -->
+							<div class="item-box fixed-box">
+								<figure>
+									<%= image_tag "director.jpg", :class=> "img-responsive" %>
+								</figure>
+								<div class="item-box-desc">
+									<h4>Dennis Gilmore</h4>
+									<small class="styleColor">Executive Director</small>
+									<p>Dennis Gilmore has been in theatre for nearly 30 years as an actor, director, producer and technical director.</p>
+									<div class="text-center">
+										<a href="#" class="social fa fa-facebook"></a>
+										<a href="#" class="social fa fa-twitter"></a>
+										<a href="#" class="social fa fa-google-plus"></a>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li class="isotope-item col-md-3 creative"><!-- item 2 -->
+							<div class="item-box fixed-box">
+								<figure>
+									<%= image_tag "gary.png", :class=> "img-responsive" %>
+								</figure>
+								<div class="item-box-desc">
+									<h4>Gary McDonald</h4>
+									<small class="styleColor">Technical Director</small>
+									<p>Gary is a veteran actor and has served in every technical capacity as a volunteer. </p>
+									<div class="text-center">
+										<a href="#" class="social fa fa-facebook"></a>
+										<a href="#" class="social fa fa-twitter"></a>
+										<a href="#" class="social fa fa-google-plus"></a>
+									</div>
+								</div>
+							</div>
+						</li>
+
+					</ul>
+
+				</div><!-- /.masonry-container -->
+
+		
+
+
+			</section>
