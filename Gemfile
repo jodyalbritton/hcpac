@@ -32,7 +32,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'rolify'
 gem 'authority'
-
+gem 'figaro'
 
 #LAYOUT
 gem 'bootstrap-sass', '~> 3.2.0'
