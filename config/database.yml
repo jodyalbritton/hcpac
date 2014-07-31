@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: hcpac_production
-  username: hcpac
-  password: <%= ENV['HCPAC_DATABASE_PASSWORD'] %>
+  username: root
+
+  password:  <%= ENV['HCPAC_DATABASE_PASSWORD'] %>
