@@ -1,0 +1,19 @@
+<%  add_breadcrumb "Home", :root_path, :options => { :title => "Home" } %>
+<%  add_breadcrumb "Productions", productions_url, :options => { :title => "Productions" } %>
+<% content_for :page_title, 'HCPAC New Production' %>
+	<!-- PAGE TITLE -->
+			<header id="page-title">
+
+				<div class="container">
+					<h1>New Production</h1>
+
+					<ul class="breadcrumb">
+						  <%= render_breadcrumbs :tag => :li, :separator => "" %>
+						
+					</ul>
+				</div>
+			</header>
+<div class="container">
+	<%= render 'form' %>
+ 	 
+</div>
