@@ -701,7 +701,7 @@ function _parallax() {
  **************************************************************** **/
 function _masonry() {
 
-	$(window).on('page:change', function () {
+	$(window).on('page:fetch', function () {
 
 		jQuery("span.js_loader").remove();
 		jQuery("li.masonry-item").addClass('fadeIn');
@@ -729,7 +729,7 @@ function _masonry() {
 
 		if(destination.get(0)) {
 
-			$(window).on('page:change', function () {
+			$(window).on('page:load', function () {
 
 				destination.isotope({
 					itemSelector: 	"li",

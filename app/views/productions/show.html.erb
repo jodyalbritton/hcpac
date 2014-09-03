@@ -1,26 +1,65 @@
-<div class="page-header">
-  <%= link_to productions_path, :class => 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <%= link_to edit_production_path(@production), :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
-  <h1>Show production</h1>
-</div>
+<%  add_breadcrumb @production.title, production_url(@production) %>
+<% content_for :page_title, @production.title %>
+  <!-- PAGE TITLE -->
+      <header id="page-title">
 
-<dl class="dl-horizontal">
-  <dt>Title:</dt>
-  <dd><%= @production.title %></dd>
+        <div class="container">
+          <h2>Productions</h2>
 
-  <dt>Description:</dt>
-  <dd><%= @production.description %></dd>
+          <ul class="breadcrumb">
+              <%= render_breadcrumbs :tag => :li, :separator => "" %>
+            
+          </ul>
+        </div>
+      </header>
+        <section class="container">
 
-  <dt>Start date:</dt>
-  <dd><%= @production.start_date %></dd>
+          <div class="row">
+            <div class="left col-md-9">
 
-  <dt>End date:</dt>
-  <dd><%= @production.end_date %></dd>
+              <!-- article title -->
+              <header class="blog-post">
+                <h1><%= @production.title %></h1>
+                <small class="fsize13">
+                  <a href="blog.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Business</a> 
+                  <a href="#comments" class="scrollTo label label-default light"><i class="fa fa-comment-o"></i> 3 Comments</a>
+                  <span class="label label-default light">June 29, 2014</span> 
+                </small>
+              </header>
 
-</dl>
+
+              <!-- article content -->
+              <article>
+                <p>
+                  <%= simple_format(@production.description) %>
+                </p>
+              </article>
+
+              
+              <div class="divider"><!-- divider -->
+                <i class="fa fa-star"></i>
+              </div>
+
+
+
+            </div>
+            <div class="right col-md-3">
+              <div class="widget">
+                <h4>Tickets</h4>
+                   
+               <div class="clearfix"></div>
+              </div>
+             
+              <div class="widget">
+                <h4>Cast and Crew</h4>
+              <div class="clearfix"></div>
+              </div>
+
+          </div>
+
+
+        </section>
+
+      </div>
+
+    <!-- /WRAPPER -->

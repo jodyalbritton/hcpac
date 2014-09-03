@@ -1,17 +1,85 @@
-<h2>Sign in</h2>
+<div id="shop">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+				<!-- PAGE TITLE -->
+				<header id="page-title">
+					<div class="container">
+						<h1>Sign In</h1>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+						<ul class="breadcrumb">
+							<li><a href="index.html">Home</a></li>
+							<li class="active">Sign In</li>
+						</ul>
+					</div>
+				</header>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+				<section class="container">
 
-<%= render "devise/shared/links" %>
+					<div class="row">
+
+						<!-- LOGIN -->
+						<div class="col-md-6">
+
+							<h2>Sign <strong>In</strong></h2>
+
+							<%= form_for(resource, as: resource_name, url: session_path(resource_name), :form_html => {:class=> "white-row"}) do |f| %>
+							
+
+								<!-- alert failed -->
+								
+
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>E-mail Address</label>
+											<%= f.email_field :email, autofocus: true, :class=> "form-control" %>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>Password</label>
+											<%= f.password_field :password, autocomplete: "off", :class=> "form-control" %>
+											
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<span class="remember-box checkbox">
+											<label for="rememberme">
+												<%= f.check_box :remember_me %> Remember Me
+												
+											</label>
+										</span>
+									</div>
+									<div class="col-md-6">
+										<input type="submit" value="Sign In" class="btn btn-primary pull-right" data-loading-text="Loading...">
+									</div>
+								</div>
+
+							<% end %>
+
+						</div>
+						<!-- /LOGIN -->
+
+						<!-- PASSWORD -->
+						<div class="col-md-6">
+
+
+						</div>
+						<!-- /PASSWORD -->
+
+					</div>
+
+
+					<p class="white-row">
+						Don't have an account yet? <%= link_to "Click to create one", new_user_registration_path %>
+					</p>
+
+				</section>
+
+			</div>
+
+

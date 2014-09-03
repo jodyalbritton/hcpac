@@ -1,12 +1,13 @@
 class ProductionsController < ApplicationController
   before_action :set_production, only: [:show, :edit, :update, :destroy]
-
+  add_breadcrumb "Home", :root_url
+  add_breadcrumb "Productions", :productions_url
   # GET /productions
   # GET /productions.json
   def index
     @productions = Production.all
-
     @current_production = Production.last
+    @past_productions = Production.all
     
   end
 

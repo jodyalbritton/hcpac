@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  production_id: 
+  profile_id: 
+  credited_as: MyString
+
+two:
+  production_id: 
+  profile_id: 
+  credited_as: MyString
