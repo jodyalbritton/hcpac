@@ -39,7 +39,7 @@
 							</div>
 
 							<!-- LAYER NR. 3 -->
-							<div class="tp-caption large_bold_grey skewfromrightshort customout"
+							<div class="tp-caption medium_thin_grey skewfromrightshort customout"
 								data-x="80"
 								data-y="66"
 								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
@@ -49,27 +49,14 @@
 								data-endspeed="500"
 								data-endeasing="Power4.easeIn"
 								data-captionhidden="off"
-								style="z-index: 4">CURRENT
+								style="z-index: 4"><%= current_production.title %>
 							</div>
 
-							<!-- LAYER NR. 4 -->
-							<div class="tp-caption large_bold_grey skewfromleftshort customout"
-								data-x="80"
-								data-y="122"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="300"
-								data-start="1100"
-								data-easing="Back.easeOut"
-								data-endspeed="500"
-								data-endeasing="Power4.easeIn"
-								data-captionhidden="off"
-								style="z-index: 7">PRODUCTION
-							</div>
 
 							<!-- LAYER NR. 5 -->
 							<div class="tp-caption small_thin_grey customin customout"
 								data-x="80"
-								data-y="230"
+								data-y="120"
 								data-customin="x:0;y:100;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:3;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:0% 0%;"
 								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
 								data-speed="500"
@@ -79,9 +66,8 @@
 								data-endeasing="Power4.easeIn"
 								data-captionhidden="off"
 								style="z-index: 8">
-								Opening in September<br /> 
-								An Unspecified comedy<br /> 
-								<a href="<%= productions_url %>">Read more...</a>
+								<%= current_production.description.first(50) %><br>
+								<a href="<%= production_url(current_production) %>">Read more...</a>
 							</div>
 
 
@@ -127,7 +113,7 @@
 							<i class="fa fa-heart"></i>
 							<h4>Upcoming Shows</h4>
 							<p>The Arts in Athens</p>
-							<%= link_to "Show Schedule", "#" %>
+							<%= link_to "Show Schedule", productions_url %>
 						</div>
 					</div>
 					<div class="col-md-3">
@@ -143,7 +129,7 @@
 							<i class="fa fa-ticket"></i>
 							<h4>Online Ticketing</h4>
 							<p>Purchase Your tickets online</p>
-							<%= link_to "Box Office", "#" %>
+							<%= link_to "Box Office", "https://buy.ticketstothecity.com/venue.php?org_id=38" %>
 						</div>
 					</div>
 				</div>
@@ -175,7 +161,7 @@
 								<small><em> Thank You For Your Support</em></small>
 							</p>
 
-							<a class="btn btn-primary btn-lg" href="#">Donate</a>
+						     <%= link_to "Donate", "https://buy.ticketstothecity.com/venue.php?org_id=38", :class=>"btn btn-primary btn-large" %>
 						</div>
 
 						<!-- right image -->
