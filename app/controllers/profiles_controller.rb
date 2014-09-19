@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!,
+    :only => [:destroy, :update, :edit, :create, :new]
+  authorize_actions_for ApplicationAuthorizer, :except => [:show, :index]
 
   # GET /profiles
   # GET /profiles.json

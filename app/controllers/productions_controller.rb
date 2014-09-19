@@ -1,5 +1,8 @@
 class ProductionsController < ApplicationController
   before_action :set_production, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!,
+    :only => [:destroy, :update, :edit, :create, :new]
+  authorize_actions_for ApplicationAuthorizer, :except => [:show, :index]
   add_breadcrumb "Home", :root_url
   add_breadcrumb "Productions", :productions_url
   # GET /productions
@@ -68,7 +71,7 @@ class ProductionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_production
-      @production = Production.find(params[:id])
+      @production = Production.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
