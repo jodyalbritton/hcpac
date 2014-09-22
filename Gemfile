@@ -41,7 +41,14 @@ gem 'autoprefixer-rails'
 gem 'high_voltage'
 gem "breadcrumbs_on_rails"
 gem 'bootstrap-generators', '~> 3.1.1'
-gem 'friendly_id', '~> 5.0.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+gem 'friendly_id', '~> 5.0.0' 
+# Note: You MUST use 5.0.0 or greater for Rails 4.0+
+
+#FILES
+
+gem 'paperclip', '~>4.2'
+gem 'jquery-fileupload-rails'
+# Use Paperclip for Picture Upload 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

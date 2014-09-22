@@ -1,0 +1,28 @@
+<% @attachment = @production.attachments.new %> 
+  <%= form_for ([@production, @attachment]), :class=> "form-horizontal panel", :html => { :multipart => true} do |f| %>
+  <div class="panel-body">
+  <% if @attachment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attachment.errors.count, "error") %> prohibited this attachment from being saved:</h2>
+
+      <ul>
+        <% @attachment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+    
+    <%= f.file_field :file, multiple: true, name: 'attachment[file]', :hint=> "You can select multiple files" %>
+   
+  </div>
+  <div class="panel-footer text-right actions">
+     <%= f.submit "save", class: 'btn' %>
+  </div>
+<% end %>
+
+<% # jquery upload template # %>
+<script id="template-upload" type="text/x-tmpl"><div class="upload">{%=o.name%}<div class="progress"><div class="progress-bar bar" style="width: 0%"></div></div></div></script>
+

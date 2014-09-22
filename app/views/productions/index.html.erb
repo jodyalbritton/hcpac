@@ -40,16 +40,15 @@
             <!-- FEATURED -->
             <div class="row">
               <div class="col-md-6">
-                <!-- carousel -->
-                <div class="owl-carousel controlls-over nomargin" data-plugin-options='{"items": 1, "singleItem": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "itemsScaleUp":true}'>
-                  <div>
-                    <img alt="" class="img-responsive" src="assets/images/demo/magazine/article/8.jpg" />
-                  </div>
-                  <div>
-                    <img alt="" class="img-responsive" src="assets/images/demo/magazine/article/7.jpg" />
-                  </div>
-                </div>
-                <!-- /carousel -->
+              <% unless @current_production.attachments.first == nil%>
+                <%= link_to production_path(@current_production) do %>
+                  <%= image_tag @current_production.attachments.first.file(:medium), :class=> "img-responsive" %></a>
+                <% end %>
+              <% else %>
+                  <%= link_to production_path(@current_production) do %>
+                  <%= image_tag "medium/missing.png", :class=> "img-responsive" %>
+                  <% end %>
+              <% end %>
 
               </div>
               <div class="col-md-6">
@@ -81,15 +80,19 @@
             <!-- article summary -->
             <div class="row">
               <div class="col-md-4 text-center">
-                <img alt="" class="img-responsive" src="assets/images/demo/magazine/article/1.jpg" />
+              <% production_photo = production.attachments %>
+              <% unless production_photo.first == nil%>
+                <%= link_to production_path(production) do %>
+                  <%= image_tag production_photo.first.file(:medium), :class=> "img-responsive" %></a>
+                <% end %>
+              <% else %>
+                  <%= link_to production_path(production) do %>
+                  <%= image_tag "medium/missing.png", :class=> "img-responsive" %>
+                  <% end %>
+              <% end %>
+               
                 <!-- star rated -->
-                <ul class="star-rated styleSecondColor">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star-o"></i></li>
-                  <li><i class="fa fa-star-o"></i></li>
-                </ul>
+           
                 <!-- /star rated -->
               </div>
               <div class="col-md-8">

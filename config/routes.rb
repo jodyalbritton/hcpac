@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :profiles
+  resources :profiles do
+     resources :attachments
+  end
 
-  resources :productions
+  resources :productions do
+     resources :attachments
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

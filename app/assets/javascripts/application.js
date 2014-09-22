@@ -17,6 +17,10 @@
 //= require bootstrap
 //= require jquery.appear
 //= require jquery.backstretch.min
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
+//= require attachments
+//= require plugins/magnific-popup/jquery.magnific-popup.min
 //= require holder
 //= require jquery.isotope
 //= require jquery.stellar

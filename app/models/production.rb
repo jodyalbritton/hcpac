@@ -4,6 +4,6 @@ class Production < ActiveRecord::Base
 	extend FriendlyId
 	has_many :credits
 	has_many :profiles, through: :credits
-
+	has_many :attachments, as: :attachable
 	friendly_id :title, use: :slugged
 end
