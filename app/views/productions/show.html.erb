@@ -4,12 +4,25 @@
       <header id="page-title">
 
         <div class="container">
+        <div class="pull-right">
+          <% if user_signed_in? %>
+            <% if current_user.has_role? :admin %>
+              <%= link_to edit_production_path(@production) do %>
+                <i class="featured-icon half fa fa-edit"></i>
+              <% end %>
+              <%= link_to edit_production_path(@production) do %>
+                <i class="featured-icon half fa fa-trash-o"></i>
+              <% end %>
+            <% end %>
+          <% end %>
+          </div>
           <h2>Productions</h2>
 
           <ul class="breadcrumb">
               <%= render_breadcrumbs :tag => :li, :separator => "" %>
             
           </ul>
+
         </div>
       </header>
         <section class="container">
@@ -20,11 +33,6 @@
               <!-- article title -->
               <header class="blog-post">
                 <h1><%= @production.title %></h1>
-                <small class="fsize13">
-                  <a href="blog.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Business</a> 
-                  <a href="#comments" class="scrollTo label label-default light"><i class="fa fa-comment-o"></i> 3 Comments</a>
-                  <span class="label label-default light">June 29, 2014</span> 
-                </small>
               </header>
 
 
@@ -45,7 +53,7 @@
             </div>
             <div class="right col-md-3">
               <div class="widget">
-                <h4>Tickets</h4>
+                <h4><%= link_to "Tickets", @production.tickets_url %></h4>
                    
                <div class="clearfix"></div>
               </div>

@@ -3,6 +3,15 @@
       <header id="page-title">
 
         <div class="container">
+          <div class="pull-right">
+          <% if user_signed_in? %>
+            <% if current_user.has_role? :admin %>
+              <%= link_to new_production_path do %>
+                <i class="featured-icon half fa fa-plus"></i>
+              <% end %>
+            <% end %>
+          <% end %>
+          </div>
           <h1>Productions</h1>
 
           <ul class="breadcrumb">
