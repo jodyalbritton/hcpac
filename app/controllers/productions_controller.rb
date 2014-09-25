@@ -8,9 +8,10 @@ class ProductionsController < ApplicationController
   # GET /productions
   # GET /productions.json
   def index
-    @productions = Production.all
-    @current_production = Production.last
-    @past_productions = Production.all
+    
+    @current_productions = Production.where("start_date <= ? and end_date >= ?",  Date.today, Date.today)
+    @past_productions = Production.where("start_date < ? and end_date < ?",  Date.today, Date.today)
+    @upcoming_productions = Production.where("start_date > ? and end_date > ?",  Date.today, Date.today)
     
   end
 
