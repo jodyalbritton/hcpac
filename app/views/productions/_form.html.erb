@@ -39,6 +39,17 @@
                     <%= f.date_field :end_date, :class => "form-control", :required => true %>
                   </div>
                 </div>
+
+                 <div class="form-group">
+                  <div class="col-md-6">
+                     <%= f.label :ticket_start_date, :class => "control-label" %>
+                     <%= f.date_field :ticket_start_date, :class => "form-control", :required => true %>
+                  </div>
+                  <div class="col-md-6">
+                    <%= f.label :ticket_end_date, :class => "control-label" %>
+                    <%= f.date_field :ticket_end_date, :class => "form-control", :required => true %>
+                  </div>
+                </div>
                 <div class="col-md-12">
                   <div class="form-group">
                    <%= f.label :tickets_url, :class => "control-label" %>

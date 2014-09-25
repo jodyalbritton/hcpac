@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922141111) do
+ActiveRecord::Schema.define(version: 20140925182829) do
 
   create_table "attachments", force: true do |t|
     t.integer  "attachable_id"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20140922141111) do
     t.datetime "updated_at"
     t.string   "tickets_url"
     t.string   "slug"
+    t.datetime "ticket_start_date"
+    t.datetime "ticket_end_date"
   end
 
   add_index "productions", ["slug"], name: "index_productions_on_slug", unique: true, using: :btree

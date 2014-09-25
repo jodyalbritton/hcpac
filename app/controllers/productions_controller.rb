@@ -9,9 +9,9 @@ class ProductionsController < ApplicationController
   # GET /productions.json
   def index
     
-    @current_productions = Production.where("start_date <= ? and end_date >= ?",  Date.today, Date.today)
-    @past_productions = Production.where("start_date < ? and end_date < ?",  Date.today, Date.today)
-    @upcoming_productions = Production.where("start_date > ? and end_date > ?",  Date.today, Date.today)
+    @current_productions = Production.where("ticket_start_date <= ? and ticket_end_date >= ?",  Date.today, Date.today).order('ticket_start_date ASC')
+    @past_productions = Production.where("ticket_start_date < ? and ticket_end_date < ?",  Date.today, Date.today).order('ticket_start_date ASC')
+    @upcoming_productions = Production.where("ticket_start_date > ? and ticket_end_date > ?",  Date.today, Date.today).order('ticket_start_date ASC')
     
   end
 
@@ -77,6 +77,6 @@ class ProductionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def production_params
-      params.require(:production).permit(:title, :description, :start_date, :end_date, :tickets_url)
+      params.require(:production).permit(:title, :description, :start_date, :end_date, :ticket_start_date, :ticket_end_date, :tickets_url)
     end
 end
