@@ -1,6 +1,6 @@
 module ApplicationHelper
 	def current_production
-		Production.where("start_date <= ? and end_date >= ?",  Date.today, Date.today)
+		Production.where("start_date <= ? and end_date >= ?",  Date.today, Date.today).first
     end
 
     def past_productions
