@@ -36,33 +36,34 @@
            
 
 
-            <% unless @current_production == nil %>
-            <!-- FEATURED -->
-            <div class="row">
-              <div class="col-md-6">
-              <%= @current_productions.each do |production| %>
-                <% unless production.attachments.first == nil%>
-                <%= link_to production_path(production) do %>
-                  <%= image_tag production.attachments.first.file(:medium), :class=> "img-responsive" %></a>
-                <% end %>
-                <% else %>
-                    <%= link_to production_path(production) do %>
-                    <%= image_tag "medium/missing.png", :class=> "img-responsive" %>
+            <% unless @current_productions == nil %>
+            <% @current_productions.each do |production| %>
+              <!-- FEATURED -->
+              <div class="row">
+                <div class="col-md-6">
+                  <% unless production.attachments.first == nil%>
+                      <%= link_to production_path(production) do %>
+                      <%= image_tag production.attachments.first.file(:medium), :class=> "img-responsive" %>
                     <% end %>
-                <% end %>
-              <% end %>
+                  <% else %>
+                      <%= link_to production_path(production) do %>
+                      <%= image_tag "medium/missing.png", :class=> "img-responsive" %>
+                      <% end %>
+                  <% end %>
+               
+                </div>
+                <div class="col-md-6">
+                  <h2><%= link_to production.title, production_url(production), :class=>"styleColor" %></h2>
+                  <h3><%= production.start_date.strftime('%m/%d/%Y')+" - "+production.end_date.strftime('%m/%d/%Y')%></h3>
+                 
+                  <p><%= production.description %></p>
+                  <%= link_to "Read More", production_url(production), :class=> "btn btn-default"%>
+                 
+                </div>
+              </div>
+              <!-- /FEATURED -->
+             <% end %>
 
-              </div>
-              <div class="col-md-6">
-                <h2><%= link_to @current_production.try(:title), production_url(@current_production), :class=>"styleColor" %></h2>
-                <h3><%= production.start_date.strftime('%m/%d/%Y')+" - "+production.end_date.strftime('%m/%d/%Y')%></h3>
-               
-                <p><%= @current_production.description %></p>
-                <%= link_to "Read More", production_url(@current_production), :class=> "btn btn-default"%>
-               
-              </div>
-            </div>
-            <!-- /FEATURED -->
             <% end %>
 
 
