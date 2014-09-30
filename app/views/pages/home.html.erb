@@ -101,7 +101,7 @@
 								data-captionhidden="off"
 								style="z-index: 8">
 								
-									<p><%= word_wrap(current_production.description, :length => 50).gsub("\n", "<br />").html_safe %></p>
+									<p><%= word_wrap(current_production.description.first(500), :length => 50).gsub("\n", "<br />").html_safe %>....</p>
 						
 								<a href="<%= production_url(current_production) %>">Read more...</a>
 							</div>
