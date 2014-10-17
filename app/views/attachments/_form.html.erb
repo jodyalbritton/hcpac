@@ -1,11 +1,9 @@
 <% if @production? %>
   <% @attachment = @event.attachments.new %> 
   <% @attachable = @production %>
-<% elsif @event?  %>
+<% elsif @event? %>
   <% @attachment = @event.attachments.new %> 
   <% @attachable = @event %>
-<% else %>
-
 <% end %>
 
 
