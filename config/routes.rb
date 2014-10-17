@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :profiles do
      resources :attachments
   end
-
+  resources :events do 
+    resources :attachments
+  end 
   resources :productions do
      resources :attachments
   end

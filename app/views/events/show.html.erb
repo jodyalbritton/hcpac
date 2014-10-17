@@ -1,0 +1,115 @@
+<%  add_breadcrumb @event.title, event_url(@event) %>
+<% content_for :page_title, @event.title %>
+
+  <!-- PAGE TITLE -->
+      <header id="page-title">
+
+        <div class="container">
+        <div class="pull-right">
+          <% if user_signed_in? %>
+            <% if current_user.has_role? :admin %>
+              <%= link_to edit_event_path(@event) do %>
+                <i class="featured-icon half fa fa-edit"></i>
+              <% end %>
+              <%= link_to event_path(@event), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } do %>
+                <i class="featured-icon half fa fa-trash-o"></i>
+              <% end %>
+            <% end %>
+          <% end %>
+          </div>
+          <h2>Productions</h2>
+
+          <ul class="breadcrumb">
+              <%= render_breadcrumbs :tag => :li, :separator => "" %>
+            
+          </ul>
+
+        </div>
+      </header>
+        <section class="container">
+
+          <div class="row">
+            <div class="left col-md-9">
+
+              <!-- article title -->
+              <header class="blog-post">
+                <h1><%= @event.title %></h1>
+              </header>
+
+
+              <!-- article content -->
+              <article>
+                <p>
+                  <%= simple_format(@event.description) %>
+                </p>
+              </article>
+
+              
+              <div class="divider"><!-- divider -->
+                <i class="fa fa-star"></i>
+              </div>
+
+              <div class="row">
+                <% @event.attachments.each do |image| %>
+                  <div class="col-md-4">
+                    <a class="img-thumbnail lightbox" href="<%= image.file.url %>" data-plugin-options="{&quot;type&quot;:&quot;image&quot;}">
+                    <%= image_tag image.file.url(:medium), :class=>"img-responsive", :height => "260", :width => "260" %>
+                    </a>
+                  </div>
+                <% end %>
+              </div>
+
+
+            </div>
+            <div class="right col-md-3">
+              <div class="widget">
+              <% if user_signed_in? %>
+                    <% if current_user.has_role? :admin %>
+                      <button class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#newAttachment">Add Photos</button>
+                    <% end %>
+                <% end %>
+               <div class="clearfix"></div>
+              </div>
+              <div class="widget">
+                <h4><%= link_to "Tickets", @event.tickets_url %></h4>
+                   
+               <div class="clearfix"></div>
+              </div>
+             
+              <div class="widget">
+                <h4>Cast and Crew</h4>
+              <div class="clearfix"></div>
+              </div>
+
+          </div>
+
+
+        </section>
+
+      </div>
+
+    <!-- /WRAPPER -->
+     
+
+     <!-- 5. $DEFAULT_MODAL =============================================================================
+
+        Default modal
+      -->
+        <!-- Modal -->
+        <div id="newAttachment" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">New Photo</h4>
+              </div>
+              <div class="modal-body">
+                  <%= render "attachments/form" %>
+              </div> <!-- / .modal-body -->
+            </div> <!-- / .modal-content -->
+          </div> <!-- / .modal-dialog -->
+        </div> <!-- /.modal -->
+        <!-- / Modal -->
+
+       
+<!-- /5. $DEFAULT_MODAL -->

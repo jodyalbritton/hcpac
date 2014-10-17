@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925182829) do
+ActiveRecord::Schema.define(version: 20141017170554) do
 
   create_table "attachments", force: true do |t|
     t.integer  "attachable_id"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(version: 20140925182829) do
 
   add_index "credits", ["production_id"], name: "index_credits_on_production_id", using: :btree
   add_index "credits", ["profile_id"], name: "index_credits_on_profile_id", using: :btree
+
+  create_table "events", force: true do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "ticket_start"
+    t.datetime "ticket_end"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "tickets_url"
+    t.string   "slug"
+  end
+
+  add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false

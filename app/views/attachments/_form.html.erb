@@ -1,5 +1,15 @@
-<% @attachment = @production.attachments.new %> 
-  <%= form_for ([@production, @attachment]), :class=> "form-horizontal panel", :html => { :multipart => true} do |f| %>
+<% if @production != nil %>
+  <% @attachment = @event.attachments.new %> 
+  <% @attachable = @production %>
+<% elsif @event != nil %>
+  <% @attachment = @event.attachments.new %> 
+  <% @attachable = @event %>
+<% else %>
+
+<% end %>
+
+
+  <%= form_for ([@attachable, @attachment]), :class=> "form-horizontal panel", :html => { :multipart => true} do |f| %>
   <div class="panel-body">
   <% if @attachment.errors.any? %>
     <div id="error_explanation">
