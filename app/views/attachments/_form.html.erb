@@ -1,7 +1,7 @@
-<% if @production? %>
-  <% @attachment = @event.attachments.new %> 
+<% if current_page?(production_path) %>
+  <% @attachment = @production.attachments.new %> 
   <% @attachable = @production %>
-<% elsif @event? %>
+<% elsif current_page?(event_path) %>
   <% @attachment = @event.attachments.new %> 
   <% @attachable = @event %>
 <% end %>
