@@ -1,7 +1,7 @@
-<% if @production != nil %>
+<% if @production? %>
   <% @attachment = @event.attachments.new %> 
   <% @attachable = @production %>
-<% elsif @event != nil %>
+<% elsif @event?  %>
   <% @attachment = @event.attachments.new %> 
   <% @attachable = @event %>
 <% else %>
