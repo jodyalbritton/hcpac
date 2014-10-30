@@ -1,12 +1,17 @@
 class ShowtimesController < ApplicationController
   before_action :set_showtime, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Home", :root_url
+  add_breadcrumb "Productions", :productions_url
+  add_breadcrumb "Showtimes", :production_showtimes_url
 
   # GET /showtimes
   # GET /showtimes.json
   def index
+
     @production = Production.friendly.find(params[:production_id])
+    add_breadcrumb @production.title
     @showtimes = @production.showtimes.order(:date)
-    @showtimes_by_day = @showtimes.group_by{ |d| d.date}
+    @showtimes_by_day = @showtimes.group_by{ |d| d.date.strftime('%d %B %Y')}
   end
 
   # GET /showtimes/1
