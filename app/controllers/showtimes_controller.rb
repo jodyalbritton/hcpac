@@ -38,7 +38,7 @@ class ShowtimesController < ApplicationController
 
     respond_to do |format|
       if @showtime.save
-        format.html { redirect_to [@production,@showtime], notice: 'Showtime was successfully created.' }
+        format.html { redirect_to @production, notice: 'Showtime was successfully created.' }
         format.json { render :show, status: :created, location: @showtime }
       else
         format.html { render :new }

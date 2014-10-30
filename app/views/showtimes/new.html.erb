@@ -1,9 +1,18 @@
-<div class="page-header">
-  <%= link_to showtimes_path, :class => 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <h1>New showtime</h1>
-</div>
+<!-- WRAPPER -->
+    <!-- PAGE TITLE -->
+      <header id="page-title">
+      	<div class="container">
+          <h1>New Showtime</h1>
+
+          <ul class="breadcrumb">
+              <%= render_breadcrumbs :tag => :li, :separator => "" %>
+            
+          </ul>
+        </div>
+      </header>
+<div class="container">
 
 <%= render 'form' %>
+</div>
+
+
