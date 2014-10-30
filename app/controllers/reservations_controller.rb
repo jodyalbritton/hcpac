@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    
   end
 
   # GET /reservations/1
@@ -14,7 +14,9 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/new
   def new
-    @reservation = Reservation.new
+    @production = Production.friendly.find(params[:production_id])
+    @showtime = Showtime.find(params[:showtime_id])
+    @reservation = @showtime.reservations.new
   end
 
   # GET /reservations/1/edit
@@ -24,11 +26,13 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.new(reservation_params)
-
+    @production = Production.friendly.find(params[:production_id])
+    @showtime = Showtime.find(params[:showtime_id])
+    @reservation = @showtime.reservations.new(reservation_params)
+   
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
+        format.html { redirect_to [@production, @showtime, @reservation], notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class ReservationsController < ApplicationController
   def update
     respond_to do |format|
       if @reservation.update(reservation_params)
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
+        format.html { redirect_to [@production, @showtime, @reservation], notice: 'Reservation was successfully updated.' }
         format.json { render :show, status: :ok, location: @reservation }
       else
         format.html { render :edit }
@@ -64,11 +68,12 @@ class ReservationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
-      @reservation = Reservation.find(params[:id])
+      @showtime = Showtime.find(params[:showtime_id])
+      @reservation = @showtime.reservations.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:showtime_id, :user_id)
+      params.require(:reservation).permit(:showtime_id, :user_id, :full_name, :phone, :email_address, :notes)
     end
 end

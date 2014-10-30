@@ -1,9 +1,17 @@
-<div class="page-header">
-  <%= link_to reservations_path, :class => 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <h1>New reservation</h1>
-</div>
+<!-- WRAPPER -->
+    <!-- PAGE TITLE -->
+      <header id="page-title">
+      	<div class="container">
+          <h1>New Reservation</h1>
+
+          <ul class="breadcrumb">
+              <%= render_breadcrumbs :tag => :li, :separator => "" %>
+            
+          </ul>
+        </div>
+      </header>
+<div class="container">
+<h3> Reserving Tickets for <%= @production.title %> on <%= @reservation.showtime.date.strftime('%d %B %Y') %> at <%= @showtime.date.strftime('%l:%M %p')%></h3>
 
 <%= render 'form' %>
+</div>

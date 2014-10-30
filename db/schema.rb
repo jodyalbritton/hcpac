@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030143422) do
+ActiveRecord::Schema.define(version: 20141030185605) do
 
   create_table "attachments", force: true do |t|
     t.integer  "attachable_id"
@@ -95,6 +95,10 @@ ActiveRecord::Schema.define(version: 20141030143422) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "notes"
+    t.string   "full_name"
+    t.string   "email_address"
+    t.string   "phone"
   end
 
   add_index "reservations", ["showtime_id"], name: "index_reservations_on_showtime_id", using: :btree
