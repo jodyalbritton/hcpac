@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017170554) do
+ActiveRecord::Schema.define(version: 20141030143422) do
 
   create_table "attachments", force: true do |t|
     t.integer  "attachable_id"
@@ -90,6 +90,16 @@ ActiveRecord::Schema.define(version: 20141017170554) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
+  create_table "reservations", force: true do |t|
+    t.integer  "showtime_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reservations", ["showtime_id"], name: "index_reservations_on_showtime_id", using: :btree
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
+
   create_table "roles", force: true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -100,6 +110,14 @@ ActiveRecord::Schema.define(version: 20141017170554) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "showtimes", force: true do |t|
+    t.datetime "date"
+    t.integer  "showable_id"
+    t.string   "showable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

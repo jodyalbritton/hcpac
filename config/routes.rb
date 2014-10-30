@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :reservations
+
+  resources :showtimes
+
   resources :profiles do
      resources :attachments
   end
@@ -7,6 +11,11 @@ Rails.application.routes.draw do
   end 
   resources :productions do
      resources :attachments
+     resources :showtimes do
+        resources :reservations
+     end
+    
+
   end
 
   devise_for :users
